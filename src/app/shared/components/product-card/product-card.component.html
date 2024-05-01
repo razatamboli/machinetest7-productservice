@@ -1,0 +1,26 @@
+<div class="card my-2" #card *ngFor="let product of productArr">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <img style="width: 100%; height: 100%;" src="{{product.productImg}}" alt="img">
+            </div>
+            <div class="col-md-8 text-center">
+                <input class="form-control" #input type="text" [disabled]="isdisabled" [value]="product.productName">
+                <hr>
+                <span class="animation-class p-2">{{product.productStatus}}</span>
+
+                <hr>
+
+                <div class="d-flex justify-content-between">
+                    <button mat-stroked-button (click)="onEdit(input)" color="accent" >EDit</button>
+                    <button mat-stroked-button (click)="onDelete(card)" color="warn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: black;" class="card-footer d-flex justify-content-between">
+        <button (click)="Onbtn('Delivered')" mat-raised-button>Dispatched</button>
+        <button class="ml-md-2" (click)="Onbtn('InProgress')" mat-raised-button>InProgress</button>
+        <button class="ml-md-2" (click)="Onbtn('Delivered')" mat-raised-button>Delivered</button>
+    </div>
+</div>
